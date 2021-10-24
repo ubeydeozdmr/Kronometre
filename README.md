@@ -1,9 +1,15 @@
 # Kronometre
 Başlatma, durdurma, devam ettirme, sıfırlama özellikleri olan; ayrıca kayıt alıp metin belgesi olarak çıktı da alabileceğiniz bir program.
 ---
-[V1.0 sürümünü buraya tıklayarak indirip deneyebilirsiniz!](https://github.com/ubeydeozdmr/Kronometre/releases/tag/v1.0)
+[V1.1 sürümünü buraya tıklayarak indirip deneyebilirsiniz!](https://github.com/ubeydeozdmr/Kronometre/releases/tag/v1.1)
 ---
-![Ekran görüntüsü 2021-09-24 200852](https://user-images.githubusercontent.com/89304966/134716075-a63cbd51-958e-4d1a-8166-91af1cd4802c.png)
-![Ekran görüntüsü 2021-09-24 212737](https://user-images.githubusercontent.com/89304966/134723255-caf9f19b-89c7-4706-937b-a793c6c7d498.png)
-![Ekran görüntüsü 2021-09-24 212605](https://user-images.githubusercontent.com/89304966/134723264-603fcfee-c990-45c0-b05f-74fc6ec16e52.png)
-![Ekran görüntüsü 2021-09-24 212711](https://user-images.githubusercontent.com/89304966/134723270-d29ea7d4-cace-4085-a653-433954efba64.png)
+## Güncelleme Notları
+### v1.1
+Artık metin belgelerini hangi dosyaya kaydedeceğinizi seçebilirsiniz.
+### v1.0
+İlk oluşturma.
+## Ekran Görüntüleri
+![Ekran görüntüsü 2021-10-24 211419](https://user-images.githubusercontent.com/89304966/138607800-a3ac86e0-b6b7-4a74-a0ac-f3db8ccfbff3.png)
+![Ekran görüntüsü 2021-10-24 211603](https://user-images.githubusercontent.com/89304966/138607804-9f01d59d-388b-4c28-8e54-6bdc242ae6d6.png)
+![Ekran görüntüsü 2021-10-24 211741](https://user-images.githubusercontent.com/89304966/138607807-6999a744-241f-4d65-abed-a97e227406dd.png)
+![Ekran görüntüsü 2021-10-24 211837](https://user-images.githubusercontent.com/89304966/138607808-61e13307-6fdd-4aac-ab6e-666592965fea.png)
