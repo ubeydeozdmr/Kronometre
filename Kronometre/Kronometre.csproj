@@ -4,6 +4,14 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <StartupObject>Kronometre.Program</StartupObject>
+    <ApplicationIcon>chronometer_86306.ico</ApplicationIcon>
+    <Version>1.1</Version>
+    <Description>A chronometer app.</Description>
+    <Copyright>Ubeyde Emir Özdemir</Copyright>
+    <PackageProjectUrl>github.com/ubeydeozdmr/kronometre</PackageProjectUrl>
+    <PackageReleaseNotes>You can now choose which file to save the text documents in.</PackageReleaseNotes>
+    <PackageTags>kronometre, chronometer, stopwatch</PackageTags>
   </PropertyGroup>
 
 </Project>

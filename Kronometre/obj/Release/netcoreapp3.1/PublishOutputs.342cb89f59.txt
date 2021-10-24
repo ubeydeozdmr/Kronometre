@@ -1,0 +1,5 @@
+C:\Users\birol\OneDrive\Masaüstü\published\Kronometre.exe
+C:\Users\birol\OneDrive\Masaüstü\published\Kronometre.dll
+C:\Users\birol\OneDrive\Masaüstü\published\Kronometre.deps.json
+C:\Users\birol\OneDrive\Masaüstü\published\Kronometre.runtimeconfig.json
+C:\Users\birol\OneDrive\Masaüstü\published\Kronometre.pdb
