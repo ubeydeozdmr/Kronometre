@@ -12,7 +12,7 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kronometre")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Ubeyde Emir Özdemir")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("A chronometer app.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0.0")]
