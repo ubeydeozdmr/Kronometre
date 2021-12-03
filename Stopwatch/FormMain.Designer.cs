@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelSettings = new System.Windows.Forms.Panel();
+            this.buttonSettings = new System.Windows.Forms.Button();
             this.buttonNewLocation = new System.Windows.Forms.Button();
             this.buttonPrint = new System.Windows.Forms.Button();
             this.textBoxLocation = new System.Windows.Forms.TextBox();
@@ -48,6 +49,7 @@
             this.panelLabel = new System.Windows.Forms.Panel();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panelSecond = new System.Windows.Forms.Panel();
+            this.labelMillisecond = new System.Windows.Forms.Label();
             this.labelSecond = new System.Windows.Forms.Label();
             this.panelMinute = new System.Windows.Forms.Panel();
             this.labelMinute = new System.Windows.Forms.Label();
@@ -67,6 +69,7 @@
             // panelSettings
             // 
             this.panelSettings.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelSettings.Controls.Add(this.buttonSettings);
             this.panelSettings.Controls.Add(this.buttonNewLocation);
             this.panelSettings.Controls.Add(this.buttonPrint);
             this.panelSettings.Controls.Add(this.textBoxLocation);
@@ -83,6 +86,18 @@
             this.panelSettings.Name = "panelSettings";
             this.panelSettings.Size = new System.Drawing.Size(745, 77);
             this.panelSettings.TabIndex = 0;
+            // 
+            // buttonSettings
+            // 
+            this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSettings.Location = new System.Drawing.Point(636, 12);
+            this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Size = new System.Drawing.Size(100, 23);
+            this.buttonSettings.TabIndex = 9;
+            this.buttonSettings.Text = "Settings";
+            this.buttonSettings.UseVisualStyleBackColor = true;
+            this.buttonSettings.Visible = false;
+            this.buttonSettings.Click += new System.EventHandler(this.ButtonSettings_Click);
             // 
             // buttonNewLocation
             // 
@@ -279,11 +294,22 @@
             // panelSecond
             // 
             this.panelSecond.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panelSecond.Controls.Add(this.labelMillisecond);
             this.panelSecond.Controls.Add(this.labelSecond);
             this.panelSecond.Location = new System.Drawing.Point(370, 25);
             this.panelSecond.Name = "panelSecond";
             this.panelSecond.Size = new System.Drawing.Size(150, 150);
             this.panelSecond.TabIndex = 2;
+            // 
+            // labelMillisecond
+            // 
+            this.labelMillisecond.AutoSize = true;
+            this.labelMillisecond.Location = new System.Drawing.Point(131, 135);
+            this.labelMillisecond.Name = "labelMillisecond";
+            this.labelMillisecond.Size = new System.Drawing.Size(19, 15);
+            this.labelMillisecond.TabIndex = 3;
+            this.labelMillisecond.Text = "00";
+            this.labelMillisecond.Visible = false;
             // 
             // labelSecond
             // 
@@ -393,5 +419,7 @@
         private Button buttonPause;
         private Panel panelLabel;
         private FolderBrowserDialog folderBrowserDialog;
+        private Label labelMillisecond;
+        private Button buttonSettings;
     }
 }

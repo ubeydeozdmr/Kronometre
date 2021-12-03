@@ -12,9 +12,9 @@ namespace Stopwatch
         }
 
         // Global readonly strings
-        readonly string configspath = @"C:\Stopwatch\Configs";
-        readonly static string themepath = @"C:\Stopwatch\Configs\Theme.txt";
-        readonly CultureInfo culture = CultureInfo.InstalledUICulture;
+        readonly static string configspath = Variables.configspath;
+        readonly static string themepath = Variables.themepath;
+        readonly CultureInfo culture = Variables.culture;
 
         private void FormMain_Load(object sender, EventArgs e)
         {
@@ -31,6 +31,7 @@ namespace Stopwatch
                     buttonPrint.Text = "Turlarý Yazdýr";
                     buttonPause.Text = "Duraklat";
                     buttonNewLocation.Text = "Yeni Konum";
+                    buttonSettings.Text = "Ayarlar";
                     labelRecords.Text = "Turlar";
                     checkBoxAdvanced.Text = "Geliþmiþ";
                     radioButtonDefault.Text = "Varsayýlan";
@@ -45,6 +46,7 @@ namespace Stopwatch
                     buttonPrint.Text = "Print Laps";
                     buttonPause.Text = "Pause";
                     buttonNewLocation.Text = "New Location";
+                    buttonSettings.Text = "Settings";
                     labelRecords.Text = "Saved Laps";
                     checkBoxAdvanced.Text = "Advanced";
                     radioButtonDefault.Text = "Default";
@@ -64,7 +66,7 @@ namespace Stopwatch
 
                 switch (line)
                 {
-                    case "default":
+                    case "classic":
                         DefaultTheme();
                         ThemeRadio(true, false, false);
                         break;
@@ -89,7 +91,7 @@ namespace Stopwatch
         }
 
         // Global variables
-        int hour = 0, minute = 0, second = 0, lap = 0;
+        int hour = 0, minute = 0, second = 0, millisecond = 0, lap = 0;
 
         private void ButtonStart_Click(object sender, EventArgs e)
         {
@@ -98,7 +100,17 @@ namespace Stopwatch
             buttonStart.Visible = false;
             buttonPause.Visible = true;
             buttonPause.Enabled = true;
-            buttonStart.Text = "Resume";
+            switch (culture.ToString())
+            {
+                case "tr":
+                    buttonStart.Text = "Devam Ettir";
+                    break;
+                case "en":
+                    buttonStart.Text = "Resume";
+                    break;
+                default :
+                    break;
+            }
             timer.Start();
         }
 
@@ -107,10 +119,12 @@ namespace Stopwatch
             hour = 0;
             minute = 0;
             second = 0;
+            millisecond = 0;
             lap = 0;
             labelHour.Text = "0" + hour.ToString();
             labelMinute.Text = "0" + minute.ToString();
             labelSecond.Text = "0" + second.ToString();
+            labelMillisecond.Text = "0" + millisecond.ToString();
             timer.Stop();
             buttonStart.Enabled = true;
             buttonStart.Visible = true;
@@ -118,14 +132,24 @@ namespace Stopwatch
             buttonPause.Visible = false;
             buttonSave.Enabled = false;
             buttonReset.Enabled = false;
-            buttonStart.Text = "Start";
+            switch (culture.ToString())
+            {
+                case "tr":
+                    buttonStart.Text = "Baþlat";
+                    break;
+                case "en":
+                    buttonStart.Text = "Start";
+                    break;
+                default:
+                    break;
+            }
             listBoxSavedMoments.Items.Clear();
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             lap++;
-            listBoxSavedMoments.Items.Add("     " + lap + " - " + labelHour.Text + ":" + labelMinute.Text + ":" + labelSecond.Text);
+            listBoxSavedMoments.Items.Add("     " + lap + " - " + labelHour.Text + ":" + labelMinute.Text + ":" + labelSecond.Text /* + ":" + labelMillisecond.Text */);
         }
 
         private void ButtonPause_Click(object sender, EventArgs e)
@@ -136,8 +160,8 @@ namespace Stopwatch
             timer.Stop();
         }
 
-        public string folderpath = @"C:\Stopwatch";
-        public string filepath;
+        public string folderpath = Variables.folderpath;
+        public string filepath = Variables.filepath;
 
         private void ButtonNewLocation_Click(object sender, EventArgs e)
         {
@@ -222,7 +246,7 @@ namespace Stopwatch
             radioButtonLight.ForeColor = SystemColors.Control;
             radioButtonDark.ForeColor = SystemColors.Control;
             labelRecords.ForeColor = SystemColors.Control;
-            SavedTheme("default");
+            SavedTheme("classic");
         }
 
         public void LightTheme()
@@ -269,6 +293,12 @@ namespace Stopwatch
             SavedTheme("dark");
         }
 
+        private void ButtonSettings_Click(object sender, EventArgs e)
+        {
+            FormSettings settings = new();
+            settings.Show();
+        }
+
         private void RadioButtonLight_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonLight.Checked)
@@ -289,46 +319,63 @@ namespace Stopwatch
         {
             //If the second, minute, or hour value is less than 10, a 0 is prepended so that the number always appears as double digits.
 
-            second++;
-            if (second < 10)
+            /*
+            millisecond++;
+            if (millisecond < 10)
             {
-                labelSecond.Text = "0" + second.ToString();
+                labelMillisecond.Text = "0" + millisecond.ToString();
             }
             else
             {
-                labelSecond.Text = second.ToString();
+                labelMillisecond.Text = millisecond.ToString();
             }
+            */
 
-            if (second == 60)
-            {
-                second = 0;
-                labelSecond.Text = "0" + second.ToString();
-                minute++;
-                if (minute < 10)
+            //if (millisecond == 100)
+            //{
+                //millisecond = 0;
+                //labelMillisecond.Text = "0" + millisecond.ToString();
+                second++;
+                if (second < 10)
                 {
-                    labelMinute.Text = "0" + minute.ToString();
+                    labelSecond.Text = "0" + second.ToString();
                 }
                 else
                 {
-                    labelMinute.Text = minute.ToString();
+                    labelSecond.Text = second.ToString();
                 }
-                if (minute == 60)
+
+                if (second == 60)
                 {
                     second = 0;
                     labelSecond.Text = "0" + second.ToString();
-                    minute = 0;
-                    labelMinute.Text = "0" + minute.ToString();
-                    hour++;
-                    if (hour < 10)
+                    minute++;
+                    if (minute < 10)
                     {
-                        labelHour.Text = "0" + hour.ToString();
+                        labelMinute.Text = "0" + minute.ToString();
                     }
                     else
                     {
-                        labelHour.Text = hour.ToString();
+                        labelMinute.Text = minute.ToString();
+                    }
+                    if (minute == 60)
+                    {
+                        second = 0;
+                        labelSecond.Text = "0" + second.ToString();
+                        minute = 0;
+                        labelMinute.Text = "0" + minute.ToString();
+                        hour++;
+                        if (hour < 10)
+                        {
+                            labelHour.Text = "0" + hour.ToString();
+                        }
+                        else
+                        {
+                            labelHour.Text = hour.ToString();
+                        }
                     }
                 }
-            }
+            //}
         }
 
         private void CheckBoxAdvanced_CheckedChanged(object sender, EventArgs e)
